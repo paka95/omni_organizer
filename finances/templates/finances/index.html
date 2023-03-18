@@ -1,7 +1,13 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block title %}Finances{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles-finances.css' %}">
+{% endblock %}
 
 {% block content %}
 <div style="color: yellow">finances</div>
 {% endblock %}
+
+
