@@ -7,7 +7,55 @@
 {% endblock %}
 
 {% block content %}
-<div style="color: yellow">finances</div>
+    <div class="content-row">
+        <form>
+        <div class="input-wrapper title-cell">
+            <input type="text" placeholder="Title..." class="input-cell">
+        </div>
+        <div class="separator"></div>
+        <div class="input-wrapper amount-cell">
+            <input type="text" placeholder="Amount..." class="input-cell">
+        </div>
+        <div class="separator"></div>
+        <div class="input-wrapper tag-cell">
+            <input type="text" placeholder="Tag..." class="input-cell">
+        </div>
+        <div class="separator"></div>
+        <div class="input-wrapper date-cell">
+            <input type="date" class="input-cell-date">
+        </div>
+        <button type="submit" class="content-row-btn">Send</button>
+        </form>
+    </div>
+
+    <div style="color: yellow; font-size: small; margin-left: 10px;">21.03.2023</div>
+
+    <!-- content row start -->
+    <!-- <div class="content-row" style="padding: 5px;">
+        <div class="input-wrapper" style="flex-basis: 160px; flex-shrink: 0; flex-grow: 0;">
+            jakiś wydatek
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 120px; flex-shrink: 0; flex-grow: 0;">
+            54.54
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 100px; flex-shrink: 0; flex-grow: 0;">
+            transport
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 80px; flex-shrink: 0; flex-grow: 0;">
+            data
+        </div>
+    </div> -->
+    <!-- content row end -->
+
 {% endblock %}
 
 

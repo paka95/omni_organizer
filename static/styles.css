@@ -82,8 +82,9 @@
     border-radius: 5px;
     right: 0;
     z-index: 1;
-    background-color: rgba(171, 172, 173, 0.6);
-    border: 1px solid rgb(171, 172, 173);
+    background-color: #0F111B; 
+    /* border: 1px solid rgb(65, 66, 66); */
+    box-shadow: 0 0 4px 1px black;
   }
   
   .dropdown-content a {
@@ -213,4 +214,11 @@
 #notes-icon:hover {
     background-color: rgb(51, 192, 51);
     color: rgb(29, 39, 48);
+}
+
+
+.container-custom {
+    /* border: solid 2px white; */
+    border-radius: 10px;
+    margin: 20px 0;
 }

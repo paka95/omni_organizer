@@ -1,8 +1,120 @@
 #nav {
-
     background-color: red;
 }
 
 #site-name a {
     color:white
 }
+
+.content-row {
+    background-color: #0F111B; 
+    border-radius: 10px; 
+    max-width: 750px; 
+    padding: 2px;
+    margin: 10px 0;
+    display: flex;
+}
+
+input:focus {
+    outline: none;
+  }
+
+.input-wrapper {
+    /* background-color: rgb(109, 93, 93); */
+    /* width: 100px; */
+    border-radius: 10px;
+    padding: 5px;
+    height: 32px;
+    line-height: 20px;
+}
+  
+.input-cell {
+    background-color: transparent; 
+    border: none; 
+    caret-color: red; 
+    width: 100%;
+    /* color: green */
+    transition: 0.6s ease;
+}
+
+.input-cell:focus, .input-cell:hover{
+    border-bottom: 1px solid #1890ff;
+}
+
+::placeholder {
+    color: rgb(116, 116, 116)
+}
+
+.input-cell-date {
+    background-color: transparent; 
+    border:none;
+    color: rgb(116, 116, 116)
+}
+
+.title-cell {
+    flex-basis: 160px; 
+    flex-shrink: 0; 
+    flex-grow: 0;
+}
+
+.amount-cell {
+    flex-basis: 120px; 
+    flex-shrink: 0; 
+    flex-grow: 0;
+}
+
+.tag-cell {
+    flex-basis: 100px; 
+    flex-shrink: 0; 
+    flex-grow: 0;
+}
+
+.date-cell {
+    flex-basis: 80px; 
+    flex-shrink: 0; 
+    flex-grow: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 5px
+  }
+  
+.separator {
+    top:30%;
+    bottom:30%;
+    border-left:1px solid rgb(116, 116, 116);
+    margin: 5px 10px;
+  }
+  
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: transparent;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+.content-row-btn {
+    margin: 0 10px;
+    background-color: red;
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    transition: 0.2s;
+    margin-left: auto;
+}
+
+.content-row-btn:hover {
+    background-color: rgb(179, 4, 4);
+}
+
+
+
