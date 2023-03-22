@@ -18,6 +18,12 @@
 .content-row-sm {
     /* line-height: 30px; */
     height: 30px;
+    margin: 0 0;
+    margin-bottom: 5px;
+}
+
+.content-row-sm:nth-child(even){
+    background-color: #131522; 
 }
 
 input:focus {
@@ -34,7 +40,7 @@ input:focus {
 }
 
 .input-wrapper-sm {
-    height: 20px;
+    height: 30px;
     line-height: 15px;
 }
   
@@ -66,6 +72,10 @@ input:focus {
     flex-basis: 160px; 
     flex-shrink: 0; 
     flex-grow: 0;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .amount-cell {
@@ -127,14 +137,12 @@ form {
     background-color: rgb(179, 4, 4);
 }
 
-
-
 .expenses-list-container {
-    /* background-color: red; */
     max-height: 300px;
     overflow: auto;
     max-width: 760px; 
     border-radius: 10px;
+    margin: 10px 0;
 }
 
 /* width */
