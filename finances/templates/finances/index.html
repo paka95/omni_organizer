@@ -8,28 +8,312 @@
 
 {% block content %}
     <div class="content-row">
-        <form>
+        <form id="expense-form">
+        {% csrf_token %}
         <div class="input-wrapper title-cell">
-            <input type="text" placeholder="Title..." class="input-cell">
+            <input type="text" id="expense-title" placeholder="Title..." class="input-cell">
         </div>
         <div class="separator"></div>
         <div class="input-wrapper amount-cell">
-            <input type="text" placeholder="Amount..." class="input-cell">
+            <input type="text" id="expense-amount" placeholder="Amount..." class="input-cell">
         </div>
         <div class="separator"></div>
         <div class="input-wrapper tag-cell">
-            <input type="text" placeholder="Tag..." class="input-cell">
+            <select name="cars" id="expense-tag" class="input-cell">
+                <option value="" disabled hidden selected>Select Tag</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="bills">Bills</option>
+                <option value="fees">Fees</option>
+                <option value="misc">Misc</option>
+            </select>
         </div>
         <div class="separator"></div>
         <div class="input-wrapper date-cell">
-            <input type="date" class="input-cell-date">
+            <input type="date" id="expense-date" class="input-cell-date">
         </div>
-        <button type="submit" class="content-row-btn">Send</button>
+        <button type="submit" id="expense-add-btn" class="content-row-btn">Add</button>
         </form>
     </div>
 
-    <div style="color: yellow; font-size: small; margin-left: 10px;">21.03.2023</div>
+    <div style="color: yellow; font-size: small; margin-left: 10px;">03.2023</div>
 
+    <div class="expenses-list-container">
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+    
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+    
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+
+        <div class="content-row content-row-sm">
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div>jakiś tytuł</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div>jakaś kwota</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm tag-cell">
+                <div>jakiś tag</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm date-cell">
+                <div style="width: 100px">jakaś data</div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- content row start -->
+    <!-- <div class="content-row" style="padding: 5px;">
+        <div class="input-wrapper" style="flex-basis: 160px; flex-shrink: 0; flex-grow: 0;">
+            jakiś wydatek
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 120px; flex-shrink: 0; flex-grow: 0;">
+            54.54
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 100px; flex-shrink: 0; flex-grow: 0;">
+            transport
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="input-wrapper" style="flex-basis: 80px; flex-shrink: 0; flex-grow: 0;">
+            data
+        </div>
+    </div> -->
+    <!-- content row end -->
+
+
+
+    <script>
+        const currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById("expense-date").value = currentDate; // populating datepicker with today's date
+
+        const expenseForm = document.getElementById("expense-form")
+        const expenseTitle = document.getElementById("expense-title")
+        const expenseAmount = document.getElementById("expense-amount")
+        const expenseTag = document.getElementById("expense-tag")
+        const expenseDate = document.getElementById("expense-date")
+        const expenseAddBtn = document.getElementById("expense-add-btn")
+        expenseAddBtn.addEventListener("click", (e) => {
+            const currentTime = new Date();
+            const hour = currentTime.getHours();
+            const minute = currentTime.getMinutes();
+
+            e.preventDefault();
+            // console.log(currentDate + " " + hour + ":" + minute);
+            // console.log(hour + ":" + minute)
+            // console.log("Title: " + expenseTitle.value + ", " + "amount: " + expenseAmount.value + ", tag: " + expenseTag.value + ", date: " + expenseDate.value + ', time: ' + hour + ":" + minute)
+            
+            const expenseDateTime = expenseDate.value + " " + hour + ":" + minute
+
+            const expenseData = {
+                'title': expenseTitle.value,
+                'amount': expenseAmount.value,
+                'tag': expenseTag.value,
+                'date_created': expenseDateTime,
+            };
+        
+            // console.log(document.getElementsByName('csrfmiddlewaretoken')[0].value);
+
+            fetch('', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                },
+                body: JSON.stringify(expenseData),
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+
+            expenseForm.reset()
+            document.getElementById("expense-date").value = currentDate;
+        })
+    </script>
     <!-- content row start -->
     <!-- <div class="content-row" style="padding: 5px;">
         <div class="input-wrapper" style="flex-basis: 160px; flex-shrink: 0; flex-grow: 0;">
