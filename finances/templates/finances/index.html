@@ -36,111 +36,49 @@
         </form>
     </div>
 
-    <div style="color: yellow; font-size: small; margin-left: 10px;">03.2023</div>
+    <div class="input-cell-date-sm-wrapper">
+        <input type="date" id="input-cell-date-sm" class="input-cell-date-sm">
+    </div>
 
     <div class="expenses-list-container">
-        {% for expense in expenses %}
-        <div class="content-row content-row-sm">
+
+        <div class="content-row content-row-sm" id="expense-{{expense.id}}">
             <div class="input-wrapper input-wrapper-sm title-cell">
-                <div>{{expense.title}}</div>
+                <div>title</div>
             </div>
             <div class="separator"></div>
             <div class="input-wrapper input-wrapper-sm amount-cell">
-                <div>{{expense.amount}}</div>
+                <div>65.65</div>
             </div>
             <div class="separator"></div>
             <div class="input-wrapper input-wrapper-sm tag-cell">
-                <div>{{expense.tag}}</div>
+                <div id="tag-food">Food</div>
             </div>
             <div class="separator"></div>
             <div class="input-wrapper input-wrapper-sm date-cell">
-                <div style="width: 200px">{{expense.date_created|date:"d.m.Y, H:i:s"}}</div>
-                <!--  -->
+                <div style="width: 200px">54.54.3443</div>
+            </div>
+            <div class="delete-btn">
+                <i class="fa-solid fa-trash-alt"></i>
             </div>
         </div>
-        {% endfor %}
+    </div>
+
+    <div class="content-row" style="padding: 5px;" id="total-row">
+        <div class="input-wrapper input-wrapper-sm title-cell">
+            <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px">TOTAL</div>
+        </div>
+        <div class="separator"></div>
+        <div class="input-wrapper input-wrapper-sm amount-cell">
+            <div style="font-weight: bold; height: 20px; padding: 2px" id="total-amount">56565</div>
+        </div>
     </div>
 
 
+    <script src="{% static 'finances/js/populate-date.js' %}"></script>
+    <script type="module" src="{% static 'finances/js/get-expenses.js' %}"></script>
 
-    <script>
-        const currentDate = new Date().toISOString().substr(0, 10);
-        document.getElementById("expense-date").value = currentDate; // populating datepicker with today's date
 
-        const expenseForm = document.getElementById("expense-form")
-        const expenseTitle = document.getElementById("expense-title")
-        const expenseAmount = document.getElementById("expense-amount")
-        const expenseTag = document.getElementById("expense-tag")
-        const expenseDate = document.getElementById("expense-date")
-        const expenseAddBtn = document.getElementById("expense-add-btn")
-        expenseAddBtn.addEventListener("click", (e) => {
-            const currentTime = new Date();
-            const hour = currentTime.getHours();
-            const minute = currentTime.getMinutes();
-            const second = currentTime.getSeconds();
-
-            e.preventDefault();
-
-            const expenseDateTime = expenseDate.value + " " + hour + ":" + minute + ":" + second
-            const expenseData = {
-                'title': expenseTitle.value,
-                'amount': expenseAmount.value,
-                'tag': expenseTag.value,
-                'date_created': expenseDateTime,
-            };
-        
-            const expensesList = document.querySelector('.expenses-list-container');
-            fetch('', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
-                },
-                body: JSON.stringify(expenseData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                expensesList.innerHTML = ''
-                data.expenses.forEach(expense => {
-                    const dateObj = new Date(expense.date_created);
-                    const options = { 
-                        day: '2-digit', 
-                        month: '2-digit', 
-                        year: 'numeric', 
-                        hour: '2-digit', 
-                        minute: '2-digit', 
-                        second: '2-digit', 
-                        timeZone: 'UTC' 
-                        };
-                    const formattedDate = dateObj.toLocaleString(navigator.language, options)
-                    const expenseHtml = `
-                        <div class="content-row content-row-sm">
-                            <div class="input-wrapper input-wrapper-sm title-cell">
-                                <div>${expense.title}</div>
-                            </div>
-                            <div class="separator"></div>
-                            <div class="input-wrapper input-wrapper-sm amount-cell">
-                                <div>${expense.amount}</div>
-                            </div>
-                            <div class="separator"></div>
-                            <div class="input-wrapper input-wrapper-sm tag-cell">
-                                <div>${expense.tag}</div>
-                            </div>
-                            <div class="separator"></div>
-                            <div class="input-wrapper input-wrapper-sm date-cell">
-                                <div style="width: 200px">${formattedDate}</div>
-                            </div>
-                        </div>`;
-                    const expenseDiv = document.createElement('div');
-                    expenseDiv.innerHTML = expenseHtml;
-                    expensesList.appendChild(expenseDiv);
-            });})
-            .catch(error => console.error(error));
-
-            expenseForm.reset()
-            document.getElementById("expense-date").value = currentDate;
-        })
-    </script>
 {% endblock %}
 
 

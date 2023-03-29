@@ -16,14 +16,22 @@
 }
 
 .content-row-sm {
-    /* line-height: 30px; */
     height: 30px;
     margin: 0 0;
     margin-bottom: 5px;
+    padding-left: 7px;
 }
 
 .content-row-sm:nth-child(even){
     background-color: #131522; 
+}
+
+.content-row-sm:nth-child(odd):hover{
+    background-color: #121520; 
+}
+
+.content-row-sm:nth-child(even):hover{
+    background-color: #141624; 
 }
 
 input:focus {
@@ -31,8 +39,6 @@ input:focus {
 }
 
 .input-wrapper {
-    /* background-color: rgb(109, 93, 93); */
-    /* width: 100px; */
     border-radius: 10px;
     padding: 5px;
     height: 32px;
@@ -64,8 +70,52 @@ input:focus {
 
 .input-cell-date {
     background-color: transparent; 
-    border:none;
-    color: rgb(116, 116, 116)
+    border: none;
+    color: rgb(116, 116, 116);
+}
+
+.input-cell-date::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
+}
+
+.input-cell-date-sm {
+    background-color: transparent; 
+    max-width: 80px;
+    border: none;
+    color: rgb(255, 255, 0);
+}
+
+.input-cell-date-sm-wrapper {
+    margin-left: 10px; 
+    position: relative; 
+    max-width: 80px;
+    height: 25px;
+}
+
+.input-cell-date-sm-wrapper:hover {
+    border-bottom: 1px yellow solid;
+}
+
+.input-cell-date-sm::-webkit-calendar-picker-indicator {
+    background: transparent;
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    height: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: auto;
 }
 
 .title-cell {
@@ -90,6 +140,10 @@ input:focus {
     flex-grow: 0;
 }
 
+#expense-tag {
+    cursor: pointer;
+}
+
 .date-cell {
     flex-basis: 80px; 
     flex-shrink: 0; 
@@ -108,19 +162,6 @@ form {
     bottom:30%;
     border-left:1px solid rgb(116, 116, 116);
     margin: 5px 10px;
-}
-  
-.input-cell-date::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: white;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
 }
 
 .content-row-btn {
@@ -168,3 +209,32 @@ form {
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+
+#tag-food {
+    color: red
+}
+
+#tag-transport {
+    color: green
+}
+
+#tag-bills {
+    color: yellow
+}
+
+#tag-fees {
+    color: purple
+}
+
+#tag-misc {
+    color: blue
+}
+
+.delete-btn {
+    width: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
