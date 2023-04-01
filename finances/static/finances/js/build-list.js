@@ -1,4 +1,5 @@
 import { deleteExpense } from "./delete-expense.js";
+import { editExpense } from "./edit-expense.js";
 
 export function buildList(datnia = null) {
     let specifiedDate;
@@ -20,6 +21,25 @@ export function buildList(datnia = null) {
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data);
+        const totalRow = document.getElementById("total-row");
+        if (data.expenses.length == 0){
+            totalRow.innerHTML = `
+            <div class="input-wrapper input-wrapper-sm total-cell">
+                <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px" id="total">You have no expenses this month</div>
+            </div>`
+            console.log("pusto");
+        } else {
+            totalRow.innerHTML = `
+            <div class="input-wrapper input-wrapper-sm title-cell">
+                <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px" id="total">TOTAL</div>
+            </div>
+            <div class="separator"></div>
+            <div class="input-wrapper input-wrapper-sm amount-cell">
+                <div style="font-weight: bold; height: 20px; padding: 2px" id="total-amount">${data.total_amount}</div>
+            </div>`
+        }
+        
         data.expenses.forEach(expense => {
             let tag;
             switch (expense.tag) {
@@ -69,6 +89,9 @@ export function buildList(datnia = null) {
                     <div class="input-wrapper input-wrapper-sm date-cell">
                         <div style="width: 200px">${formattedDate}</div>
                     </div>
+                    <div class="edit-btn">
+                        <i class="fa-solid fa-pen"></i>
+                    </div>
                     <div class="delete-btn">
                         <i class="fa-solid fa-trash-alt"></i>
                     </div>
@@ -78,6 +101,8 @@ export function buildList(datnia = null) {
             expensesList.appendChild(expenseDiv);
       });
       const deleteButtons = document.getElementsByClassName('delete-btn')
+      const editButtons = document.getElementsByClassName('edit-btn')
       deleteExpense(deleteButtons);
+      editExpense(editButtons);
 })
 }

@@ -238,3 +238,16 @@ form {
     margin-right: 10px;
     cursor: pointer;
 }
+
+.edit-btn {
+    width: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.total-cell {
+    max-width: 300px;
+}

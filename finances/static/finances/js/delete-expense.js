@@ -2,9 +2,10 @@ import { buildList } from "./build-list.js";
 
 export function deleteExpense (deleteButtons) {
     for (let i = 0; i < deleteButtons.length; i++) {
-        deleteButtons[i].addEventListener('click', () => {
-            const idd = deleteButtons[i].closest('.content-row').getAttribute('id');
-            const expenseId = idd.match(/\d+/)[0];
+        deleteButtons[i].addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = deleteButtons[i].closest('.content-row').getAttribute('id');
+            const expenseId = id.match(/\d+/)[0];
 
             fetch(`delete/${expenseId}/`, {
                 method: 'DELETE',

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
-from rest_framework.generics import ListCreateAPIView, CreateAPIView, DestroyAPIView
+from rest_framework.generics import ListCreateAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 from rest_framework.response import Response
 from django.db.models import Sum
 from .apps import FinancesConfig
@@ -39,5 +39,10 @@ class SubmitExpense(CreateAPIView):
 
 
 class DeleteExpense(DestroyAPIView):
+    serializer_class = ExpenseSerializer    
+    queryset = Expense.objects.all()
+
+
+class UpdateExpense(UpdateAPIView):
     serializer_class = ExpenseSerializer    
     queryset = Expense.objects.all()

@@ -1,6 +1,7 @@
 import { buildList } from "./build-list.js";
 import { submitExpense } from "./submit-expense.js";
 import { deleteExpense } from "./delete-expense.js";
+import { editExpense } from "./edit-expense.js";
 
 document.addEventListener("DOMContentLoaded", function(event) {
     buildList();
@@ -11,8 +12,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     })
 
     const expenseAddBtn = document.getElementById("expense-add-btn")
+
     expenseAddBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        submitExpense();
+        if (expenseAddBtn.innerHTML == 'Add'){
+            e.preventDefault();
+            submitExpense();
+        } 
     })
+
 });
