@@ -172,10 +172,16 @@ form {
     width: 120px;
     transition: 0.2s;
     margin-left: auto;
+    color: white;
+}
+
+.cancel-btn-hidden {
+    display: none;
 }
 
 .content-row-btn:hover {
     background-color: rgb(179, 4, 4);
+    color:#c4c4c4
 }
 
 .expenses-list-container {
@@ -197,19 +203,18 @@ form {
     /* background: #4d4d4d;  */
     background-color: rgb(42, 45, 70);
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #5e5e5e; 
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+}
 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 
 #tag-food {
     color: red
@@ -243,10 +248,8 @@ form {
     width: 20px;
     text-align: center;
     margin-left: auto;
-    margin-right: 10px;
     cursor: pointer;
 }
-
 
 .total-cell {
     max-width: 300px;

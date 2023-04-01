@@ -28,7 +28,6 @@ export function buildList(datnia = null) {
             <div class="input-wrapper input-wrapper-sm total-cell">
                 <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px" id="total">You have no expenses this month</div>
             </div>`
-            console.log("pusto");
         } else {
             totalRow.innerHTML = `
             <div class="input-wrapper input-wrapper-sm title-cell">

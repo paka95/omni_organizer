@@ -33,46 +33,19 @@
             <input type="date" id="expense-date" class="input-cell-date">
         </div>
         <button type="submit" id="expense-add-btn" class="content-row-btn">Add</button>
+        <button id="expense-cancel-btn" class="content-row-btn cancel-btn-hidden">Cancel</button>
         </form>
+
+        
     </div>
 
     <div class="input-cell-date-sm-wrapper">
         <input type="date" id="input-cell-date-sm" class="input-cell-date-sm">
     </div>
 
-    <div class="expenses-list-container">
+    <div class="expenses-list-container"></div>
 
-        <div class="content-row content-row-sm" id="expense-{{expense.id}}">
-            <div class="input-wrapper input-wrapper-sm title-cell">
-                <div>title</div>
-            </div>
-            <div class="separator"></div>
-            <div class="input-wrapper input-wrapper-sm amount-cell">
-                <div>65.65</div>
-            </div>
-            <div class="separator"></div>
-            <div class="input-wrapper input-wrapper-sm tag-cell">
-                <div id="tag-food">Food</div>
-            </div>
-            <div class="separator"></div>
-            <div class="input-wrapper input-wrapper-sm date-cell">
-                <div style="width: 200px">54.54.3443</div>
-            </div>
-            <div class="delete-btn">
-                <i class="fa-solid fa-trash-alt"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-row" style="padding: 5px;" id="total-row">
-        <div class="input-wrapper input-wrapper-sm title-cell">
-            <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px" id="total">TOTAL</div>
-        </div>
-        <div class="separator"></div>
-        <div class="input-wrapper input-wrapper-sm amount-cell">
-            <div style="font-weight: bold; height: 20px; padding: 2px" id="total-amount">56565</div>
-        </div>
-    </div>
+    <div class="content-row" style="padding: 5px;" id="total-row"></div>
 
 
     <script src="{% static 'finances/js/populate-date.js' %}"></script>

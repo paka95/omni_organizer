@@ -2,6 +2,8 @@ import { buildList } from "./build-list.js";
 
 export function editExpense (editButtons) {
     let btn = document.getElementById("expense-add-btn");
+    let cancelBtn = document.getElementById("expense-cancel-btn");
+    const expenseForm = document.getElementById("expense-form")
     for (let i = 0; i < editButtons.length; i++) {
         editButtons[i].addEventListener('click', () => {
             const id = editButtons[i].closest('.content-row').getAttribute('id');
@@ -9,6 +11,7 @@ export function editExpense (editButtons) {
 
             btn.setAttribute('data-expense-to-update', `${expenseId}`);
             btn.innerHTML = "Edit";
+            cancelBtn.classList.remove('cancel-btn-hidden');
             // getting data from clicked expense row
             const expense = document.querySelector(`#expense-${expenseId}`);
             const expenseTitle = expense.querySelector('.title-cell div').textContent;
@@ -18,7 +21,6 @@ export function editExpense (editButtons) {
             expenseDate = expenseDate.split('.').reverse().join('-');
             
             // getting inputs of the form and applying to their values corresponding data from clicked expense row
-            const expenseForm = document.getElementById("expense-form")
             const expenseTitleInput = document.getElementById("expense-title");
             const expenseAmountInput = document.getElementById("expense-amount");
             const expenseTagInput = document.getElementById("expense-tag");
@@ -33,12 +35,12 @@ export function editExpense (editButtons) {
 
     btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const expenseForm = document.getElementById("expense-form")
         const expenseTitleInput = document.getElementById("expense-title");
         const expenseAmountInput = document.getElementById("expense-amount");
         const expenseTagInput = document.getElementById("expense-tag");
         const expenseDateInput = document.getElementById("expense-date");
-        
+        cancelBtn.classList.add('cancel-btn-hidden');
+
         if (btn.innerHTML == 'Edit'){
             const currentTime = new Date();
             const hour = currentTime.getHours();
@@ -79,5 +81,15 @@ export function editExpense (editButtons) {
             const currentDate = new Date().toISOString().substr(0, 10);
             document.getElementById("expense-date").value = currentDate;
         }
+    })
+
+    cancelBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        expenseForm.reset();
+        const currentDate = new Date().toISOString().substr(0, 10);
+        document.getElementById("expense-date").value = currentDate; // populating datepicker with today's date
+        cancelBtn.classList.add('cancel-btn-hidden');
+        btn.innerHTML = "Add";
+        btn.removeAttribute('data-expense-to-update');
     })
 }
