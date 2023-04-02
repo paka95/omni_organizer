@@ -8,4 +8,6 @@ urlpatterns = [
     path('submit/', views.SubmitExpense.as_view(), name='submit-expense'),
     path('delete/<int:pk>/', views.DeleteExpense.as_view(), name='delete-expense'),
     path('update/<int:pk>/', views.UpdateExpense.as_view(), name='update-expense'),
+    path('preview/', views.Preview.as_view(), name='preview'),
+    path('preview/get-preview/', views.GetPreview.as_view(), name='get-preview')
 ]

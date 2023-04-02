@@ -1,9 +1,7 @@
 import { buildList } from "./build-list.js";
 import { submitExpense } from "./submit-expense.js";
-import { deleteExpense } from "./delete-expense.js";
-import { editExpense } from "./edit-expense.js";
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", () => {
     buildList();
 
     const specified_date = document.getElementById('input-cell-date-sm');
@@ -11,13 +9,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         buildList();
     })
 
-    const expenseAddBtn = document.getElementById("expense-add-btn")
-
+    const expenseAddBtn = document.getElementById("expense-add-btn");
     expenseAddBtn.addEventListener("click", (e) => {
         if (expenseAddBtn.innerHTML == 'Add'){
             e.preventDefault();
             submitExpense();
         } 
     })
-
 });

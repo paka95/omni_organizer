@@ -11,7 +11,7 @@ export function editExpense (editButtons) {
 
             btn.setAttribute('data-expense-to-update', `${expenseId}`);
             btn.innerHTML = "Edit";
-            cancelBtn.classList.remove('cancel-btn-hidden');
+            cancelBtn.classList.remove('btn-hidden');
             // getting data from clicked expense row
             const expense = document.querySelector(`#expense-${expenseId}`);
             const expenseTitle = expense.querySelector('.title-cell div').textContent;
@@ -39,7 +39,7 @@ export function editExpense (editButtons) {
         const expenseAmountInput = document.getElementById("expense-amount");
         const expenseTagInput = document.getElementById("expense-tag");
         const expenseDateInput = document.getElementById("expense-date");
-        cancelBtn.classList.add('cancel-btn-hidden');
+        cancelBtn.classList.add('btn-hidden');
 
         if (btn.innerHTML == 'Edit'){
             const currentTime = new Date();
@@ -88,7 +88,7 @@ export function editExpense (editButtons) {
         expenseForm.reset();
         const currentDate = new Date().toISOString().substr(0, 10);
         document.getElementById("expense-date").value = currentDate; // populating datepicker with today's date
-        cancelBtn.classList.add('cancel-btn-hidden');
+        cancelBtn.classList.add('btn-hidden');
         btn.innerHTML = "Add";
         btn.removeAttribute('data-expense-to-update');
     })

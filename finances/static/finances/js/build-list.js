@@ -10,6 +10,7 @@ export function buildList(datnia = null) {
         specifiedDate = document.getElementById("input-cell-date-sm").value;
     }
     const expensesList = document.querySelector('.expenses-list-container');
+    
     expensesList.innerHTML = ''
     const obj = {
         'specified_date': specifiedDate
@@ -23,11 +24,13 @@ export function buildList(datnia = null) {
       .then(data => {
         console.log(data);
         const totalRow = document.getElementById("total-row");
+        let previewBtn = document.getElementById('preview-btn');
         if (data.expenses.length == 0){
             totalRow.innerHTML = `
             <div class="input-wrapper input-wrapper-sm total-cell">
                 <div style="text-align: center; font-weight: bold; height: 20px; padding: 2px" id="total">You have no expenses this month</div>
-            </div>`
+            </div>`;
+            previewBtn.style.display = "none";
         } else {
             totalRow.innerHTML = `
             <div class="input-wrapper input-wrapper-sm title-cell">
@@ -36,7 +39,8 @@ export function buildList(datnia = null) {
             <div class="separator"></div>
             <div class="input-wrapper input-wrapper-sm amount-cell">
                 <div style="font-weight: bold; height: 20px; padding: 2px" id="total-amount">${data.total_amount}</div>
-            </div>`
+            </div>`;
+            previewBtn.style.display = "block";
         }
         
         data.expenses.forEach(expense => {

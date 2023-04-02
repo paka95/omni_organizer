@@ -175,7 +175,7 @@ form {
     color: white;
 }
 
-.cancel-btn-hidden {
+.btn-hidden {
     display: none;
 }
 
@@ -253,4 +253,60 @@ form {
 
 .total-cell {
     max-width: 300px;
+}
+
+.preview-btn {
+    display: block;
+    text-decoration: none;
+    margin: 20px 0px;
+    background-color: rgb(49, 57, 90);
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    width: 120px;
+    line-height: 30px;
+    transition: 0.2s;
+    color: white;
+}
+
+.preview-btn:hover {
+    background-color: #0F111B; 
+    color:#c4c4c4
+}
+
+.preview-head-row {
+    background-color: #0F111B; 
+    border-radius: 10px; 
+    max-width: 750px; 
+    padding: 2px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.preview-cell {
+    width: 100px;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.preview-row-sm {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.preview-row-sm:nth-child(even){
+    background-color: #131522; 
+}
+
+.preview-row-sm:nth-child(odd):hover{
+    background-color: #121520; 
+}
+
+.preview-row-sm:nth-child(even):hover{
+    background-color: #141624; 
 }
