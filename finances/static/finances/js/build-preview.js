@@ -20,18 +20,19 @@ export function buildPreview() {
       })
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         data.expenses_list.forEach(expense => {
             const previewRow = `
             <div class="content-row preview-row-sm">
-                <div class="preview-cell">${expense[0]}</div>
+                <div class="preview-cell" title="${expense[0][1] ?? ''}">${expense[0][0] ?? ''}</div>
                 <div class="separator"></div>
-                <div class="preview-cell">${expense[1]}</div>
+                <div class="preview-cell" title="${expense[1][1] ?? ''}">${expense[1][0] ?? ''}</div>
                 <div class="separator"></div>
-                <div class="preview-cell">${expense[2]}</div>
+                <div class="preview-cell" title="${expense[2][1] ?? ''}">${expense[2][0] ?? ''}</div>
                 <div class="separator"></div>
-                <div class="preview-cell">${expense[3]}</div>
+                <div class="preview-cell" title="${expense[3][1] ?? ''}">${expense[3][0] ?? ''}</div>
                 <div class="separator"></div>
-                <div class="preview-cell">${expense[4]}</div>
+                <div class="preview-cell" title="${expense[4][1] ?? ''}">${expense[4][0] ?? ''}</div>
             </div>`;
     
             const previewDiv = document.createElement('div');

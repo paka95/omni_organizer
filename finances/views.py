@@ -51,6 +51,8 @@ class GetPreview(APIView):
             'bills': {'expenses': [], 'total': 0},
             'fees': {'expenses': [], 'total': 0},
             'misc': {'expenses': [], 'total': 0},
+            'title': [],
+            'date_created': []
         }
         data = request.data
         specified_date_obj = datetime.datetime.strptime(data["specified_date"][:10], '%Y-%m-%d')
@@ -61,19 +63,29 @@ class GetPreview(APIView):
         expenses_data = ExpenseSerializer(expenses, many=True).data
         for item in expenses_data:
             if item['tag'] == 'food':
-                expense['food']['expenses'].append(item['amount'])
+                date_obj = datetime.datetime.strptime(item['date_created'], '%Y-%m-%dT%H:%M:%SZ')
+                formatted_date_str = date_obj.strftime('%d-%m-%Y')
+                expense['food']['expenses'].append((item['amount'], f"{item['title']}, {formatted_date_str}"))
                 expense['food']['total'] += item['amount']
             elif item['tag'] == 'transport':
-                expense['transport']['expenses'].append(item['amount'])
+                date_obj = datetime.datetime.strptime(item['date_created'], '%Y-%m-%dT%H:%M:%SZ')
+                formatted_date_str = date_obj.strftime('%d-%m-%Y')
+                expense['transport']['expenses'].append((item['amount'], f"{item['title']}, {formatted_date_str}"))
                 expense['transport']['total'] += item['amount']
             elif item['tag'] == 'bills':
-                expense['bills']['expenses'].append(item['amount'])
+                date_obj = datetime.datetime.strptime(item['date_created'], '%Y-%m-%dT%H:%M:%SZ')
+                formatted_date_str = date_obj.strftime('%d-%m-%Y')
+                expense['bills']['expenses'].append((item['amount'], f"{item['title']}, {formatted_date_str}"))
                 expense['bills']['total'] += item['amount']
             elif item['tag'] == 'fees':
-                expense['fees']['expenses'].append(item['amount'])
+                date_obj = datetime.datetime.strptime(item['date_created'], '%Y-%m-%dT%H:%M:%SZ')
+                formatted_date_str = date_obj.strftime('%d-%m-%Y')
+                expense['fees']['expenses'].append((item['amount'], f"{item['title']}, {formatted_date_str}"))
                 expense['fees']['total'] += item['amount']
             elif item['tag'] == 'misc':
-                expense['misc']['expenses'].append(item['amount'])
+                date_obj = datetime.datetime.strptime(item['date_created'], '%Y-%m-%dT%H:%M:%SZ')
+                formatted_date_str = date_obj.strftime('%d-%m-%Y')
+                expense['misc']['expenses'].append((item['amount'], f"{item['title']}, {formatted_date_str}"))
                 expense['misc']['total'] += item['amount']
 
         expenses_totals = {
@@ -88,7 +100,7 @@ class GetPreview(APIView):
             expense['transport']['expenses'], 
             expense['bills']['expenses'], 
             expense['fees']['expenses'], 
-            expense['misc']['expenses'], 
+            expense['misc']['expenses'],
             fillvalue=""
             )
         expenses_list = []
