@@ -1,9 +1,23 @@
 from django.shortcuts import render
+from django.views import View
+from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
 from .apps import NotesConfig
+from .models import Note
+from .serializers import NoteSerializer
 
 # Create your views here.
 
 app_name = NotesConfig.name
 
-def index(request):
-    return render(request, 'notes/index.html')
+
+class Index(View):
+    template_name = 'notes/index.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+    
+
+class GetNotes(ListAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
