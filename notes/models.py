@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Note(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
+    title = models.CharField(max_length=255, blank=True, default="Untitled")
+    content = models.TextField(blank=True, default="No content")
     last_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):

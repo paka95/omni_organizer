@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, DestroyAPIView, CreateAPIView
 from .apps import NotesConfig
 from .models import Note
 from .serializers import NoteSerializer
@@ -19,7 +19,11 @@ class Index(View):
     
 
 class GetNotes(ListAPIView):
-    queryset = Note.objects.all()
+    queryset = Note.objects.order_by('-last_updated')
+    serializer_class = NoteSerializer
+
+
+class SubmitNote(CreateAPIView):
     serializer_class = NoteSerializer
 
 
