@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, DestroyAPIView
 from .apps import NotesConfig
 from .models import Note
 from .serializers import NoteSerializer
@@ -21,3 +21,8 @@ class Index(View):
 class GetNotes(ListAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
+
+
+class DeleteNote(DestroyAPIView):
+    serializer_class = NoteSerializer    
+    queryset = Note.objects.all()

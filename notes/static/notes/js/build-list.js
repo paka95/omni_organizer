@@ -1,3 +1,5 @@
+import { deleteNote } from "./delete-note.js";
+
 export function buildList() {
     const notesList = document.querySelector('.notes-list');
     notesList.innerHTML = ''
@@ -24,7 +26,7 @@ export function buildList() {
                 };
             const formattedDate = dateObj.toLocaleString(navigator.language, options)
             const noteHtml = `
-                <div class="note-card">
+                <div class="note-card" id="note-${note.id}">
                     <div class="note-card-headline">
                         <div class="note-card-title">${note.title}</div>
                         <div class="delete-btn">
@@ -48,6 +50,7 @@ export function buildList() {
 
     });
     const deleteButtons = document.getElementsByClassName('delete-btn')
-    // deleteNote(deleteButtons);
+    console.log(deleteButtons);
+    deleteNote(deleteButtons);
 })
 }
