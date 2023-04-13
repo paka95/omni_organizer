@@ -1,4 +1,6 @@
 import { deleteNote } from "./delete-note.js";
+import { editNote } from "./edit-note.js";
+import { loadFirstNote } from "./load-first-note.js";
 
 export function buildList() {
     const notesList = document.querySelector('.notes-list');
@@ -7,8 +9,6 @@ export function buildList() {
     fetch('get-notes/')
     .then(response => response.json())
     .then(data => {
-
-        console.log(data);
         if (data.length == 0) {
             notesList.innerHTML = `<div style="margin: 5px auto; width: 90%; height: 120px; text-align:center">You have no notes yet</div>`;
         }
@@ -28,7 +28,7 @@ export function buildList() {
             const noteHtml = `
                 <div class="note-card" id="note-${note.id}">
                     <div class="note-card-headline">
-                        <div class="note-card-title">${note.title}</div>
+                        <div class="note-card-title" title="${note.title}">${note.title}</div>
                         <div class="delete-btn">
                             <i class="fa-solid fa-trash-alt"></i>
                         </div>
@@ -48,9 +48,13 @@ export function buildList() {
                 notesList.appendChild(separator);
             }
 
-    });
-    const deleteButtons = document.getElementsByClassName('delete-btn')
-    console.log(deleteButtons);
-    deleteNote(deleteButtons);
-})
+        });
+        // loading first note's content into the form
+        loadFirstNote();
+        
+        const deleteButtons = document.getElementsByClassName('delete-btn')
+        const editCards = document.getElementsByClassName('note-card')
+        deleteNote(deleteButtons);
+        editNote(editCards);
+    })
 }

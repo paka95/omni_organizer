@@ -8,7 +8,6 @@ export function deleteNote (deleteButtons) {
             e.preventDefault();
             const id = deleteButtons[i].closest('.note-card').getAttribute('id');
             const noteId = id.match(/\d+/)[0];
-            console.log(noteId);
 
             fetch(`delete/${noteId}/`, {
                 method: 'DELETE',
