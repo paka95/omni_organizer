@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'main',
     'finances',
     'workout',
-    'notes'
+    'notes',
+    'meals'
 
 ]
 
@@ -138,6 +139,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'finances', 'static'),
+    os.path.join(BASE_DIR, 'meals', 'static'),
 ]
 
 # Default primary key field type

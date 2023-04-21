@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block title %}Meals{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles-meals.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content-row">
+    <!-- <div>Add food to the database</div> -->
+    <label for="product-form" style="padding-left:10px; color: orange; font-size: 1.5vh">Add product to the database</label>
+    <form id="product-form">
+        {% csrf_token %}
+        <div class="input-wrapper name-cell">
+            <input type="text" id="product-name" placeholder="Name..." class="input-cell">
+        </div>
+        <div class="separator"></div>
+            <div class="input-wrapper type-cell">
+            <select name="product-type" id="product-type" class="input-cell">
+                <option value="" disabled hidden selected>Select Type</option>
+                <option value="meat">Meat</option>
+                <option value="dairy">Dairy</option>
+                <option value="eggs">Eggs</option>
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="pasta">Pasta / Grains</option>
+                <option value="drinks">Drinks</option>
+                <option value="fats">Fats</option>
+                <option value="breadstuff">Breadstuff</option>
+                <option value="nuts">Nuts</option>
+                <option value="fish">Fish</option>
+                <option value="mushrooms">Mushrooms</option>
+                <option value="misc">Misc</option>
+            </select>
+        </div>
+        <!-- <div class="input-wrapper amount-cell">
+            <input type="text" id="expense-amount" placeholder="Amount..." class="input-cell">
+        </div> -->
+        <div class="separator"></div>
+        <div class="input-wrapper nutrients-cell">
+            <!-- <div style="width: 150px">Nutrients per 100g: </div> -->
+            <input type="text" id="proteins" placeholder="Proteins/100g" class="nutrients-input-cell">
+            <input type="text" id="carbs" placeholder="Carbs/100g" class="nutrients-input-cell">
+            <input type="text" id="fats" placeholder="Fats/100g" class="nutrients-input-cell">
+            <input type="text" id="kcal" placeholder="Kcal/100g" class="nutrients-input-cell">
+        </div>
+
+        <button type="submit" id="product-add-btn" class="content-row-btn">Add</button>
+
+        <!-- <div class="separator"></div> -->
+
+    </form>
+</div>
+
+
+<script type="module" src="{% static 'meals/js/get-meals.js' %}"></script>
+
+{% endblock %}
