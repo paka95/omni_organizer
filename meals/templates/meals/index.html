@@ -82,7 +82,7 @@
         <div class="separator"></div>
 
         <div class="input-wrapper" id="meal-day-cell">
-            <select id="meal-type" class="input-cell">
+            <select id="meal-day" class="input-cell">
                 <option value="" disabled hidden selected>Day</option>
                 {% for type, label in meal_days %}
                     <option value="{{ type }}">{{ label }}</option>
@@ -104,11 +104,11 @@
         <div class="separator"></div>
 
         <div class="input-wrapper" id="meal-weight-cell">
-            <input type="text" placeholder="Weight" class="meal-weight-input">
+            <input type="text" placeholder="Weight" id="meal-weight" class="meal-weight-input">
         </div>
 
 
-        <button type="submit" id="product-add-btn" class="content-row-btn">Add</button>
+        <button type="submit" id="meal-add-btn" class="content-row-btn">Add</button>
 
 
 

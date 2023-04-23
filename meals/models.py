@@ -56,6 +56,8 @@ class Meal(models.Model):
     weight = models.FloatField()
 
     def __str__(self):
-        return f"{', '.join(product.name for product in self.product.all())} ({self.day}, {self.type}, {self.weight}g)"
+        products = self.product.all()
+        kcal_amo = sum(product.kcal * self.weight / 100 for product in products)
+        return f"{', '.join(product.name for product in self.product.all())} ({self.day}, {self.type}, {self.weight}g, {kcal_amo}kcal)"
     
 
